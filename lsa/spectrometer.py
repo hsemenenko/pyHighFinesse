@@ -125,7 +125,7 @@ class Spectrometer(object):
         getter = self.lib.GetOperationState
         getter.restype = c_long
         result = getter(0)
-        return int(result.value)
+        return int(result)
 
     @active.setter
     def active(self, new_val):
@@ -155,7 +155,7 @@ class Spectrometer(object):
         get_frequency.restype = c_double
         frequency = get_frequency(0)
         self.check_error(frequency, error_type='read')
-        return float(frequency.value)
+        return float(frequency)
 
     @property
     def interval(self):
@@ -168,7 +168,7 @@ class Spectrometer(object):
         getter.restype = c_long
         interval = getter(0)
         self.check_error(interval, error_type='read')
-        return int(interval.value)
+        return int(interval)
 
     @interval.setter
     def interval(self, new_val):
@@ -222,7 +222,7 @@ class Spectrometer(object):
         wavelength = get_wavelength(0)
         # check for errors
         self.check_error(wavelength, error_type='read')
-        return float(wavelength.value)
+        return float(wavelength)
 
     @property
     def temperature(self):
@@ -235,7 +235,7 @@ class Spectrometer(object):
         get_temperature.restype = c_double
         temperature = get_temperature(0)
         self.check_error(temperature, error_type='read')
-        return float(temperature.value)
+        return float(temperature)
 
     @property
     def spectrum(self, wide_mode=1):
@@ -301,7 +301,7 @@ class Spectrometer(object):
         for i in range(0, 4):
             part = getter(i)
             self.check_error(part, error_type='read')
-            parts.append(int(part.value))
+            parts.append(int(part))
         return parts
 
     @property
@@ -323,7 +323,7 @@ class Spectrometer(object):
         for measurement in linewidth_measurements:
             param = getattr(self, 'cReturn'+linewidth_measurements[measurement])
             self.check_error(param, error_type='read')
-            param = float(param.value)
+            param = float(param)
             setattr(_linewidth_measurement, measurement, param)
         return _linewidth_measurement
 
