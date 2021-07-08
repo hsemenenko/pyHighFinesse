@@ -12,7 +12,7 @@ from pandas import DataFrame
 SYSTEM_FOLDERNAME = "C:\\Windows\\System32"
 WLM_DATA_FILE = "wlmData.dll"
 WLM_DATA_PATH = join(SYSTEM_FOLDERNAME, WLM_DATA_FILE)
-LSA_FOLDERNAME = "C:\\Program Files\\HighFinesse\\Laser Spectrum Analyser - LSA 2036"
+LSA_FOLDERNAME = "C:\\Program Files (x86)\\HighFinesse\\Laser Spectrum Analyser - LSA 2212"
 HEADER_PATH = join(LSA_FOLDERNAME, "Projects\\Headers\\C", "wlmData.h")
 SERVER_PATH = join(LSA_FOLDERNAME, "LSA.exe")
 DATATYPE_MAP = {2: c_int, 4: c_long, 8: c_double}
